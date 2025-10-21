@@ -1,0 +1,125 @@
+{
+  "common": {
+    "next": "التالي",
+    "previous": "السابق",
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "add": "إضافة",
+    "remove": "إزالة",
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "required": "مطلوب",
+    "optional": "اختياري"
+  },
+  "navigation": {
+    "step1": "المعلومات الشخصية",
+    "step2": "معلومات العائلة والمالية",
+    "step3": "وصف الوضع",
+    "progress": "التقدم"
+  },
+  "personalInfo": {
+    "title": "المعلومات الشخصية",
+    "subtitle": "يرجى تقديم تفاصيلك الشخصية",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "email": "عنوان البريد الإلكتروني",
+    "phone": "رقم الهاتف",
+    "dateOfBirth": "تاريخ الميلاد",
+    "nationality": "الجنسية",
+    "idNumber": "رقم الهوية",
+    "address": {
+      "title": "العنوان",
+      "street": "عنوان الشارع",
+      "city": "المدينة",
+      "postalCode": "الرمز البريدي",
+      "country": "البلد"
+    }
+  },
+  "familyInfo": {
+    "title": "معلومات العائلة",
+    "subtitle": "أخبرنا عن وضعك العائلي",
+    "maritalStatus": "الحالة الاجتماعية",
+    "maritalStatusOptions": {
+      "single": "أعزب/عزباء",
+      "married": "متزوج/متزوجة",
+      "divorced": "مطلق/مطلقة",
+      "widowed": "أرمل/أرملة"
+    },
+    "numberOfChildren": "عدد الأطفال",
+    "dependents": "المعولين",
+    "dependent": {
+      "name": "الاسم",
+      "relationship": "العلاقة",
+      "age": "العمر"
+    },
+    "householdIncome": "دخل الأسرة",
+    "monthlyExpenses": "المصروفات الشهرية"
+  },
+  "financialInfo": {
+    "title": "المعلومات المالية",
+    "subtitle": "قدم تفاصيل عن وضعك المالي",
+    "employmentStatus": "حالة التوظيف",
+    "employmentStatusOptions": {
+      "employed": "موظف",
+      "unemployed": "عاطل عن العمل",
+      "self-employed": "يعمل لحسابه الخاص",
+      "retired": "متقاعد",
+      "student": "طالب"
+    },
+    "monthlyIncome": "الدخل الشهري",
+    "savings": "المدخرات",
+    "debts": "الديون",
+    "debt": {
+      "creditor": "الدائن",
+      "amount": "المبلغ",
+      "monthlyPayment": "الدفعة الشهرية"
+    },
+    "assets": "الأصول",
+    "asset": {
+      "type": "النوع",
+      "value": "القيمة"
+    }
+  },
+  "situationDescription": {
+    "title": "وصف الوضع",
+    "subtitle": "صف وضعك الحالي والحاجة للمساعدة",
+    "currentSituation": "الوضع الحالي",
+    "currentSituationPlaceholder": "يرجى وصف وضعك المعيشي الحالي وظروفك...",
+    "financialHardship": "الصعوبات المالية",
+    "financialHardshipPlaceholder": "يرجى شرح الصعوبات المالية التي تواجهها...",
+    "requestedAssistance": "المساعدة المطلوبة",
+    "requestedAssistancePlaceholder": "يرجى وصف نوع المساعدة التي تحتاجها وكيف ستساعدك...",
+    "supportingDocuments": "الوثائق الداعمة",
+    "additionalInfo": "معلومات إضافية",
+    "additionalInfoPlaceholder": "أي معلومات إضافية تود تقديمها..."
+  },
+  "ai": {
+    "suggestions": "اقتراحات الذكاء الاصطناعي",
+    "accept": "قبول",
+    "edit": "تعديل",
+    "discard": "تجاهل",
+    "generating": "جاري إنشاء الاقتراحات...",
+    "error": "فشل في إنشاء الاقتراحات. يرجى المحاولة مرة أخرى.",
+    "noSuggestions": "لا توجد اقتراحات متاحة في الوقت الحالي."
+  },
+  "validation": {
+    "required": "هذا الحقل مطلوب",
+    "email": "يرجى إدخال عنوان بريد إلكتروني صحيح",
+    "phone": "يرجى إدخال رقم هاتف صحيح",
+    "minLength": "يجب أن يكون على الأقل {{count}} أحرف",
+    "maxLength": "يجب ألا يزيد عن {{count}} أحرف",
+    "minValue": "يجب أن يكون على الأقل {{count}}",
+    "maxValue": "يجب ألا يزيد عن {{count}}"
+  },
+  "errors": {
+    "generic": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "network": "خطأ في الشبكة. يرجى التحقق من اتصالك.",
+    "timeout": "انتهت مهلة الطلب. يرجى المحاولة مرة أخرى.",
+    "validation": "يرجى التحقق من إدخالك والمحاولة مرة أخرى.",
+    "submission": "فشل في إرسال الطلب. يرجى المحاولة مرة أخرى."
+  }
+}
