@@ -1,0 +1,228 @@
+{
+  "header": {
+    "title": "Social Support Portal",
+    "currentLanguage": "English"
+  },
+  "footer": {
+    "copyright": "© 2024 Government Social Support Services. All rights reserved.",
+    "supportText": "For assistance, please contact our support team."
+  },
+  "common": {
+    "close": "Close",
+    "aria": {
+      "close": "Close"
+    }
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "We're sorry, but something unexpected happened. Please try refreshing the page.",
+    "refreshButton": "Refresh Page",
+    "reportError": "Report Error",
+    "goHome": "Go to Home"
+  },
+  "financialAssistance": {
+    "steps": {
+      "personalInformation": "Personal Information",
+      "situationDescription": "Situation Description",
+      "familyInfo": "Family Information"
+    },
+    "navigation": {
+      "previous": "Previous",
+      "next": "Next",
+      "submit": "Submit",
+      "submitting": "Submitting..."
+    },
+    "successModal": {
+      "title": "Application Submitted Successfully!",
+      "subtitle": "Your financial assistance application has been received",
+      "applicationId": "Application ID",
+      "close": "Close",
+      "restartDemo": "Restart Demo"
+    },
+    "personalInfo": {
+      "title": "Personal Information",
+      "description": "Please provide your personal details below",
+      "addressSection": {
+        "title": "Address Information"
+      },
+      "fields": {
+        "name": {
+          "label": "Full Name",
+          "placeholder": "Enter your full name"
+        },
+        "nationalId": {
+          "label": "National ID",
+          "placeholder": "Enter your national ID number"
+        },
+        "dateOfBirth": {
+          "label": "Date of Birth",
+          "placeholder": "Select your date of birth"
+        },
+        "gender": {
+          "label": "Gender",
+          "options": {
+            "male": "Male",
+            "female": "Female",
+            "other": "Other"
+          }
+        },
+        "address": {
+          "label": "Address",
+          "placeholder": "Enter your full address"
+        },
+        "city": {
+          "label": "City",
+          "placeholder": "Enter your city"
+        },
+        "state": {
+          "label": "State",
+          "placeholder": "Enter your state or province"
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Enter your country"
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "Enter your phone number"
+        },
+        "email": {
+          "label": "Email Address",
+          "placeholder": "Enter your email address"
+        }
+      },
+      "validation": {
+        "required": "This {{fieldName}} is required",
+        "invalidEmail": "Please enter a valid email address",
+        "invalidPhone": "Please enter a valid phone number",
+        "invalidNationalId": "Please enter a valid national ID",
+        "invalidDate": "Please enter a valid date"
+      }
+    },
+    "familyInfo": {
+      "title": "Family & Financial Information",
+      "description": "Please provide information about your family situation and financial status",
+      "fields": {
+        "maritalStatus": {
+          "label": "Marital Status",
+          "options": {
+            "single": "Single",
+            "married": "Married",
+            "divorced": "Divorced",
+            "widowed": "Widowed",
+            "separated": "Separated"
+          }
+        },
+        "dependents": {
+          "label": "Number of Dependents",
+          "placeholder": "Enter number of dependents",
+          "description": "Include children, elderly parents, or other family members you support"
+        },
+        "employmentStatus": {
+          "label": "Employment Status",
+          "options": {
+            "employed": "Employed",
+            "unemployed": "Unemployed",
+            "self-employed": "Self-Employed",
+            "retired": "Retired",
+            "student": "Student",
+            "disabled": "Disabled"
+          }
+        },
+        "monthlyIncome": {
+          "label": "Monthly Income",
+          "placeholder": "Enter your monthly income",
+          "description": "Total monthly income from all sources (salary, benefits, etc.)"
+        },
+        "housingStatus": {
+          "label": "Housing Status",
+          "options": {
+            "owned": "Own Home",
+            "rented": "Renting",
+            "living-with-family": "Living with Family",
+            "homeless": "Homeless",
+            "other": "Other"
+          }
+        },
+        "housingDetails": {
+          "label": "Additional Housing Details",
+          "placeholder": "Please provide additional details about your housing situation"
+        }
+      },
+      "validation": {
+        "required": "This {{fieldName}} is required",
+        "invalidNumber": "Please enter a valid number",
+        "minDependents": "Number of dependents cannot be negative",
+        "minIncome": "Monthly income cannot be negative"
+      }
+    },
+    "situationDescription": {
+      "title": "Situation Description",
+      "description": "Please describe your current financial situation and circumstances",
+      "fields": {
+        "currentFinancialSituation": {
+          "label": "Current Financial Situation",
+          "placeholder": "Describe your current financial situation in detail",
+          "description": "Include information about your income, expenses, debts, and any financial challenges you're facing"
+        },
+        "employmentCircumstances": {
+          "label": "Employment Circumstances",
+          "placeholder": "Describe your employment situation",
+          "description": "Include your job status, work hours, salary, or any employment-related challenges"
+        },
+        "reasonForApplying": {
+          "label": "Reason for Applying",
+          "placeholder": "Explain why you are applying for financial assistance",
+          "description": "Describe the specific circumstances that led you to seek financial support"
+        },
+        "additionalDetails": {
+          "label": "Additional Details",
+          "placeholder": "Any other information you'd like to share",
+          "description": "Include any other relevant information that might help with your application"
+        }
+      },
+      "validation": {
+        "required": "This {{fieldName}} is required",
+        "minLength": "Please provide at least {{min}} characters",
+        "maxLength": "Please limit your response to {{max}} characters"
+      }
+    },
+    "content": {
+      "stepContent": "Content for step {{stepNumber}} will go here."
+    },
+    "aiSuggestion": {
+      "title": "AI Writing Assistant",
+      "suggestionLabel": "Suggested text:",
+      "placeholder": "Edit the suggested text as needed...",
+      "helpText": "You can edit the suggested text before accepting it, or discard it if it doesn't meet your needs.",
+      "accept": "Accept",
+      "edit": "Use Edited",
+      "discard": "Discard",
+      "loading": "Generating suggestion...",
+      "helpMeWrite": "Help Me Write",
+      "error": {
+        "timeout": "Request timed out. Please try again.",
+        "apiKey": "Invalid API key. Please check your configuration.",
+        "rateLimit": "Rate limit exceeded. Please try again later.",
+        "serverError": "Server error. Please try again later.",
+        "generic": "Failed to get AI assistance. Please try again."
+      }
+    },
+    "apiKey": {
+      "title": "API Key Required",
+      "description": "To use the AI writing assistant, you need to provide your OpenAI API key.",
+      "label": "OpenAI API Key",
+      "placeholder": "Enter your OpenAI API key",
+      "helpText": "Your API key will be stored locally in your browser and used only for AI assistance features. It will not be shared with our servers.",
+      "save": "Save & Continue",
+      "cancel": "Cancel",
+      "validation": {
+        "required": "API key is required",
+        "invalid": "Please enter a valid API key"
+      }
+    },
+    "errors": {
+      "submissionFailed": "Failed to submit application. Please try again."
+    }
+  }
+}

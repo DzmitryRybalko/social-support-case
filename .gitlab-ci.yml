@@ -1,0 +1,194 @@
+# GitLab CI/CD Pipeline for Social Support Application
+# React TypeScript frontend with Vite build system
+
+# Define stages
+stages:
+  - install
+  - lint
+  - test
+  - build
+  - deploy
+
+# Define variables
+variables:
+  NODE_VERSION: '18'
+  NPM_CACHE_FOLDER: '.npm'
+  DIST_FOLDER: 'dist'
+  BUILD_FOLDER: 'build'
+
+# Cache configuration
+cache:
+  paths:
+    - node_modules/
+    - $NPM_CACHE_FOLDER/
+
+# Install dependencies stage
+install_dependencies:
+  stage: install
+  image: node:${NODE_VERSION}-alpine
+  before_script:
+    - npm config set cache $NPM_CACHE_FOLDER --global
+    - npm ci --cache $NPM_CACHE_FOLDER --prefer-offline
+  script:
+    - echo "Dependencies installed successfully"
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 hour
+  only:
+    - main
+    - develop
+    - merge_requests
+
+# Lint stage
+lint_code:
+  stage: lint
+  image: node:${NODE_VERSION}-alpine
+  dependencies:
+    - install_dependencies
+  before_script:
+    - npm config set cache $NPM_CACHE_FOLDER --global
+  script:
+    - npm run lint
+  artifacts:
+    reports:
+      junit: lint-results.xml
+    when: always
+  only:
+    - main
+    - develop
+    - merge_requests
+
+# Test stage (if tests exist)
+test_code:
+  stage: test
+  image: node:${NODE_VERSION}-alpine
+  dependencies:
+    - install_dependencies
+  before_script:
+    - npm config set cache $NPM_CACHE_FOLDER --global
+  script:
+    - echo "Running tests..."
+    # Uncomment when tests are implemented
+    # - npm run test:ci
+    - echo "Tests completed (placeholder)"
+  artifacts:
+    reports:
+      junit: test-results.xml
+    when: always
+  only:
+    - main
+    - develop
+    - merge_requests
+
+# Build stage
+build_application:
+  stage: build
+  image: node:${NODE_VERSION}-alpine
+  dependencies:
+    - install_dependencies
+  before_script:
+    - npm config set cache $NPM_CACHE_FOLDER --global
+  script:
+    - echo "Building application..."
+    - npm run build
+    - echo "Build completed successfully"
+    - ls -la $DIST_FOLDER
+  artifacts:
+    paths:
+      - $DIST_FOLDER/
+    expire_in: 1 week
+    reports:
+      dotenv: build.env
+  only:
+    - main
+    - develop
+    - merge_requests
+
+# Security scan (optional)
+security_scan:
+  stage: test
+  image: node:${NODE_VERSION}-alpine
+  dependencies:
+    - install_dependencies
+  before_script:
+    - npm config set cache $NPM_CACHE_FOLDER --global
+  script:
+    - echo "Running security audit..."
+    - npm audit --audit-level moderate
+    - echo "Security scan completed"
+  allow_failure: true
+  only:
+    - main
+    - develop
+    - merge_requests
+
+# Deploy to staging (example)
+deploy_staging:
+  stage: deploy
+  image: alpine:latest
+  dependencies:
+    - build_application
+  before_script:
+    - apk add --no-cache rsync openssh-client
+  script:
+    - echo "Deploying to staging environment..."
+    # Add your deployment commands here
+    # Example: rsync -avz --delete $DIST_FOLDER/ user@staging-server:/var/www/html/
+    - echo "Staging deployment completed"
+  environment:
+    name: staging
+    url: https://staging.social-support.gov
+  only:
+    - develop
+
+# Deploy to production
+deploy_production:
+  stage: deploy
+  image: alpine:latest
+  dependencies:
+    - build_application
+  before_script:
+    - apk add --no-cache rsync openssh-client
+  script:
+    - echo "Deploying to production environment..."
+    # Add your production deployment commands here
+    # Example: rsync -avz --delete $DIST_FOLDER/ user@prod-server:/var/www/html/
+    - echo "Production deployment completed"
+  environment:
+    name: production
+    url: https://social-support.gov
+  when: manual
+  only:
+    - main
+
+# Cleanup job
+cleanup:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo "Cleaning up temporary files..."
+  when: always
+  allow_failure: true
+
+# Performance testing (optional)
+performance_test:
+  stage: test
+  image: node:${NODE_VERSION}-alpine
+  dependencies:
+    - build_application
+  before_script:
+    - npm config set cache $NPM_CACHE_FOLDER --global
+  script:
+    - echo "Running performance tests..."
+    # Add performance testing commands here
+    # Example: npm run test:performance
+    - echo "Performance tests completed"
+  artifacts:
+    reports:
+      performance: performance-report.json
+    when: always
+  allow_failure: true
+  only:
+    - main
+    - develop

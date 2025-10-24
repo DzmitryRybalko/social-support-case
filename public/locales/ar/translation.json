@@ -1,0 +1,228 @@
+{
+  "header": {
+    "title": "بوابة الدعم الاجتماعي",
+    "currentLanguage": "العربية"
+  },
+  "footer": {
+    "copyright": "© 2024 خدمات الدعم الاجتماعي الحكومية. جميع الحقوق محفوظة.",
+    "supportText": "للحصول على المساعدة، يرجى الاتصال بفريق الدعم لدينا."
+  },
+  "common": {
+    "close": "إغلاق",
+    "aria": {
+      "close": "إغلاق"
+    }
+  },
+  "error": {
+    "title": "حدث خطأ ما",
+    "description": "نأسف، لكن حدث شيء غير متوقع. يرجى محاولة تحديث الصفحة.",
+    "refreshButton": "تحديث الصفحة",
+    "reportError": "الإبلاغ عن خطأ",
+    "goHome": "الذهاب إلى الرئيسية"
+  },
+  "financialAssistance": {
+    "steps": {
+      "personalInformation": "المعلومات الشخصية",
+      "situationDescription": "وصف الوضع",
+      "familyInfo": "معلومات العائلة"
+    },
+    "navigation": {
+      "previous": "السابق",
+      "next": "التالي",
+      "submit": "إرسال",
+      "submitting": "جاري الإرسال..."
+    },
+    "successModal": {
+      "title": "تم إرسال الطلب بنجاح!",
+      "subtitle": "تم استلام طلب المساعدة المالية الخاص بك",
+      "applicationId": "رقم الطلب",
+      "close": "إغلاق",
+      "restartDemo": "إعادة تشغيل العرض التوضيحي"
+    },
+    "personalInfo": {
+      "title": "المعلومات الشخصية",
+      "description": "يرجى تقديم تفاصيلك الشخصية أدناه",
+      "addressSection": {
+        "title": "معلومات العنوان"
+      },
+      "fields": {
+        "name": {
+          "label": "الاسم الكامل",
+          "placeholder": "أدخل اسمك الكامل"
+        },
+        "nationalId": {
+          "label": "رقم الهوية الوطنية",
+          "placeholder": "أدخل رقم الهوية الوطنية"
+        },
+        "dateOfBirth": {
+          "label": "تاريخ الميلاد",
+          "placeholder": "اختر تاريخ ميلادك"
+        },
+        "gender": {
+          "label": "الجنس",
+          "options": {
+            "male": "ذكر",
+            "female": "أنثى",
+            "other": "آخر"
+          }
+        },
+        "address": {
+          "label": "العنوان",
+          "placeholder": "أدخل عنوانك الكامل"
+        },
+        "city": {
+          "label": "المدينة",
+          "placeholder": "أدخل مدينتك"
+        },
+        "state": {
+          "label": "المحافظة",
+          "placeholder": "أدخل محافظتك أو ولايتك"
+        },
+        "country": {
+          "label": "البلد",
+          "placeholder": "أدخل بلدك"
+        },
+        "phone": {
+          "label": "رقم الهاتف",
+          "placeholder": "أدخل رقم هاتفك"
+        },
+        "email": {
+          "label": "عنوان البريد الإلكتروني",
+          "placeholder": "أدخل عنوان بريدك الإلكتروني"
+        }
+      },
+      "validation": {
+        "required": "هذا الحقل مطلوب",
+        "invalidEmail": "يرجى إدخال عنوان بريد إلكتروني صحيح",
+        "invalidPhone": "يرجى إدخال رقم هاتف صحيح",
+        "invalidNationalId": "يرجى إدخال رقم هوية وطنية صحيح",
+        "invalidDate": "يرجى إدخال تاريخ صحيح"
+      }
+    },
+    "familyInfo": {
+      "title": "معلومات العائلة والمالية",
+      "description": "يرجى تقديم معلومات عن وضعك العائلي والمالي",
+      "fields": {
+        "maritalStatus": {
+          "label": "الحالة الاجتماعية",
+          "options": {
+            "single": "أعزب/عزباء",
+            "married": "متزوج/متزوجة",
+            "divorced": "مطلق/مطلقة",
+            "widowed": "أرمل/أرملة",
+            "separated": "منفصل/منفصلة"
+          }
+        },
+        "dependents": {
+          "label": "عدد المعالين",
+          "placeholder": "أدخل عدد المعالين",
+          "description": "يشمل الأطفال، الآباء المسنين، أو أفراد العائلة الآخرين الذين تدعمهم"
+        },
+        "employmentStatus": {
+          "label": "حالة التوظيف",
+          "options": {
+            "employed": "موظف",
+            "unemployed": "عاطل عن العمل",
+            "self-employed": "يعمل لحسابه الخاص",
+            "retired": "متقاعد",
+            "student": "طالب",
+            "disabled": "معاق"
+          }
+        },
+        "monthlyIncome": {
+          "label": "الدخل الشهري",
+          "placeholder": "أدخل دخلك الشهري",
+          "description": "إجمالي الدخل الشهري من جميع المصادر (الراتب، المزايا، إلخ)"
+        },
+        "housingStatus": {
+          "label": "حالة السكن",
+          "options": {
+            "owned": "يملك منزلاً",
+            "rented": "يستأجر",
+            "living-with-family": "يعيش مع العائلة",
+            "homeless": "بلا مأوى",
+            "other": "أخرى"
+          }
+        },
+        "housingDetails": {
+          "label": "تفاصيل إضافية عن السكن",
+          "placeholder": "يرجى تقديم تفاصيل إضافية عن وضعك السكني"
+        }
+      },
+      "validation": {
+        "required": "هذا الحقل مطلوب",
+        "invalidNumber": "يرجى إدخال رقم صحيح",
+        "minDependents": "لا يمكن أن يكون عدد المعالين سالباً",
+        "minIncome": "لا يمكن أن يكون الدخل الشهري سالباً"
+      }
+    },
+    "situationDescription": {
+      "title": "وصف الوضع",
+      "description": "يرجى وصف وضعك المالي الحالي وظروفك",
+      "fields": {
+        "currentFinancialSituation": {
+          "label": "الوضع المالي الحالي",
+          "placeholder": "اوصف وضعك المالي الحالي بالتفصيل",
+          "description": "تضمين معلومات عن دخلك، نفقاتك، ديونك، وأي تحديات مالية تواجهها"
+        },
+        "employmentCircumstances": {
+          "label": "ظروف التوظيف",
+          "placeholder": "اوصف وضعك الوظيفي",
+          "description": "تضمين حالة عملك، ساعات العمل، الراتب، أو أي تحديات متعلقة بالتوظيف"
+        },
+        "reasonForApplying": {
+          "label": "سبب التقديم",
+          "placeholder": "اشرح سبب تقديمك لطلب المساعدة المالية",
+          "description": "اوصف الظروف المحددة التي دفعتك للبحث عن الدعم المالي"
+        },
+        "additionalDetails": {
+          "label": "تفاصيل إضافية",
+          "placeholder": "أي معلومات أخرى تود مشاركتها",
+          "description": "تضمين أي معلومات أخرى ذات صلة قد تساعد في طلبك"
+        }
+      },
+      "validation": {
+        "required": "هذا الحقل مطلوب",
+        "minLength": "يرجى تقديم {{min}} أحرف على الأقل",
+        "maxLength": "يرجى تحديد ردك بـ {{max}} حرف كحد أقصى"
+      }
+    },
+    "content": {
+      "stepContent": "سيتم وضع محتوى الخطوة {{stepNumber}} هنا."
+    },
+    "aiSuggestion": {
+      "title": "مساعد الكتابة بالذكاء الاصطناعي",
+      "suggestionLabel": "النص المقترح:",
+      "placeholder": "قم بتحرير النص المقترح حسب الحاجة...",
+      "helpText": "يمكنك تحرير النص المقترح قبل قبوله، أو تجاهله إذا لم يناسب احتياجاتك.",
+      "accept": "قبول",
+      "edit": "استخدام المحرر",
+      "discard": "تجاهل",
+      "loading": "جاري إنشاء الاقتراح...",
+      "helpMeWrite": "ساعدني في الكتابة",
+      "error": {
+        "timeout": "انتهت مهلة الطلب. يرجى المحاولة مرة أخرى.",
+        "apiKey": "مفتاح API غير صحيح. يرجى التحقق من الإعدادات.",
+        "rateLimit": "تم تجاوز حد المعدل. يرجى المحاولة لاحقاً.",
+        "serverError": "خطأ في الخادم. يرجى المحاولة لاحقاً.",
+        "generic": "فشل في الحصول على المساعدة من الذكاء الاصطناعي. يرجى المحاولة مرة أخرى."
+      }
+    },
+    "apiKey": {
+      "title": "مفتاح API مطلوب",
+      "description": "لاستخدام مساعد الكتابة بالذكاء الاصطناعي، تحتاج إلى تقديم مفتاح OpenAI API الخاص بك.",
+      "label": "مفتاح OpenAI API",
+      "placeholder": "أدخل مفتاح OpenAI API الخاص بك",
+      "helpText": "سيتم حفظ مفتاح API الخاص بك محلياً في متصفحك واستخدامه فقط لميزات المساعدة بالذكاء الاصطناعي. لن يتم مشاركته مع خوادمنا.",
+      "save": "حفظ ومتابعة",
+      "cancel": "إلغاء",
+      "validation": {
+        "required": "مفتاح API مطلوب",
+        "invalid": "يرجى إدخال مفتاح API صحيح"
+      }
+    },
+    "errors": {
+      "submissionFailed": "فشل إرسال الطلب. يرجى المحاولة مرة أخرى."
+    }
+  }
+}
