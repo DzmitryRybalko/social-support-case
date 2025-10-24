@@ -88,90 +88,170 @@ The application uses OpenAI's API to provide AI assistance for:
 ### Tech Stack
 
 - **Frontend Framework**: React 18 with TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS + SCSS
-- **Form Management**: React Hook Form with Zod validation
-- **Routing**: React Router v7
+- **Build Tool**: Vite with manual chunk splitting
+- **Styling**: Tailwind CSS v4 + SCSS
+- **Form Management**: React Hook Form with Zod v4 validation
+- **Routing**: React Router v7 with lazy loading
 - **Internationalization**: react-i18next (English/Arabic support)
-- **HTTP Client**: Axios
-- **Icons**: Font Awesome
+- **HTTP Client**: Axios with interceptors
+- **Icons**: Font Awesome v7
+- **State Management**: React hooks + localStorage persistence
+
+### Architecture Pattern: Feature-Slice Design
+
+This project follows the **Feature-Slice Design** pattern, organizing code by features rather than technical layers. Each feature contains its own API, model (business logic), and UI layers, promoting better maintainability and feature isolation.
 
 ### Project Structure
 
 ```
 src/
-├── features/                    # Feature-based modules
-│   └── FinancialAssistance/     # Main application feature
-│       ├── api/                 # API layer
-│       ├── model/              # Business logic & types
-│       └── ui/                 # UI components
-├── shared/                      # Shared components & utilities
-│   ├── contexts/               # React contexts
-│   ├── layout/                 # Layout components
-│   ├── ui-kit/                 # Reusable UI components
-│   └── utils/                  # Utility functions
-├── pages/                      # Page components
-├── router/                     # Routing configuration
-├── locales/                    # Translation files
-├── config/                     # App configuration
-└── styles/                     # Global styles
+├── features/                           # Feature-based modules
+│   └── FinancialAssistance/            # Main application feature
+│       ├── api/                        # External API communication
+│       │   ├── applicationApi.ts        # Mock backend API
+│       │   └── openAiApi.ts            # OpenAI integration
+│       ├── model/                      # Business logic & domain
+│       │   ├── constants/              # Form field definitions
+│       │   │   └── formConstants.ts    # Field validation rules
+│       │   ├── hooks/                  # Feature-specific hooks
+│       │   │   ├── useApiKey.ts        # API key management
+│       │   │   ├── useFamilyInfoTranslations.ts
+│       │   │   └── useLocalStorage.ts  # Form persistence
+│       │   ├── types/                  # TypeScript interfaces
+│       │   │   ├── FamilyInfo.ts       # Family data types
+│       │   │   ├── FinancialAssistanceStepper.ts
+│       │   │   ├── MaritalStatus.ts    # Enum definitions
+│       │   │   ├── PersonalInfo.ts     # Personal data types
+│       │   │   └── SituationDescription.ts
+│       │   └── utils/                  # Business logic utilities
+│       │       └── formDataCollector.ts # Data aggregation
+│       └── ui/                         # Presentation components
+│           ├── components/             # Modal components
+│           │   ├── AISuggestionModal.tsx
+│           │   ├── ApiKeyModal.tsx
+│           │   └── SuccessModal.tsx
+│           ├── steps/                  # Multi-step form pages
+│           │   ├── FamilyInfoStep.tsx
+│           │   ├── PersonalInfoStep.tsx
+│           │   └── SituationDescriptionStep.tsx
+│           └── FinancialAssistanceStepper.tsx
+├── shared/                             # Shared components & utilities
+│   ├── components/                      # Global components
+│   │   └── ErrorBoundary/              # Error handling
+│   ├── contexts/                        # React contexts
+│   │   └── RTLContext.tsx              # RTL/Language context
+│   ├── layout/                         # Layout components
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   └── Layout.tsx
+│   └── ui-kit/                         # Reusable UI components
+│       ├── SspButton/                  # Custom button component
+│       ├── Stepper/                    # Progress stepper
+│       ├── InputWithLabel/             # Form inputs
+│       ├── TextareaWithLabel/
+│       ├── RadioGroup/
+│       ├── Modal/
+│       ├── HelperText/
+│       ├── Label/
+│       └── Spinner/
+├── pages/                              # Page components
+│   └── FinancialAssistance/
+├── router/                             # Routing configuration
+│   └── AppRouter.tsx
+├── config/                             # App configuration
+│   └── i18n.ts                         # Internationalization setup
+└── styles/                             # Global styles
+    └── global.scss
 ```
 
-### Key Architectural Decisions
+## ✨ Key Features
 
-#### 1. Feature-Based Architecture
+### Multi-Step Form Wizard
+- **Progressive Disclosure**: Three-step process (Personal Info → Family Info → Situation Description)
+- **Step Navigation**: Users can navigate between completed steps with visual progress tracking
+- **Form Persistence**: All form data automatically saved to localStorage for recovery
+- **Validation**: Real-time validation with React Hook Form + Zod schemas
 
-- **Decision**: Organized code by features rather than technical layers
-- **Rationale**: Improves maintainability and makes features self-contained
-- **Benefit**: Easier to locate and modify related functionality
+### AI-Powered Assistance
+- **Smart Suggestions**: OpenAI integration for financial situation descriptions
+- **Modal Interface**: Accept, edit, or discard AI suggestions with user-friendly modal
+- **Flexible API Key Management**: Support for both environment variables and user-provided keys
+- **Error Handling**: Comprehensive error handling for API failures, rate limits, and timeouts
 
-#### 2. Form State Management
+### Bilingual Support
+- **RTL/LTR Layout**: Full support for Arabic (RTL) and English (LTR) layouts
+- **Language Switching**: Seamless language switching with persistent user preference
+- **Context-Aware**: Automatic language detection from browser settings
+- **Accessibility**: Proper ARIA labels and screen reader support
 
-- **Decision**: React Hook Form with Zod validation
+### Form Data Management
+- **Centralized Collection**: Single utility (`formDataCollector.ts`) aggregates all form data
+- **Type Safety**: Complete TypeScript interfaces for all form data structures
+- **Data Validation**: Zod schemas ensure data integrity before submission
+- **Recovery System**: Automatic form recovery on page reload
+
+### Error Handling & UX
+- **Error Boundaries**: Graceful error handling with React Error Boundaries
+- **Loading States**: Comprehensive loading indicators for async operations
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Accessibility**: WCAG compliant with keyboard navigation support
+
+## 🏗️ Key Architectural Decisions
+
+#### 1. Feature-Slice Design Pattern
+
+- **Decision**: Organized code by features with API/Model/UI layers
+- **Rationale**: 
+  - Better maintainability and feature isolation
+  - Clear separation of concerns within each feature
+  - Easier testing and debugging
+- **Implementation**: Each feature contains its own business logic, API calls, and UI components
+
+#### 2. Model Layer Architecture
+
+- **Decision**: Centralized business logic in the model layer
+- **Rationale**:
+  - Separation of business logic from presentation
+  - Reusable hooks and utilities
+  - Type-safe data structures
+- **Components**: Types, hooks, constants, and utilities organized by domain
+
+#### 3. Form State Management
+
+- **Decision**: React Hook Form with Zod validation + localStorage persistence
 - **Rationale**:
   - Type-safe form validation
   - Better performance with uncontrolled components
-  - Automatic form state persistence
-- **Implementation**: Multi-step form with localStorage persistence
+  - Automatic form state persistence across sessions
+- **Implementation**: Multi-step form with centralized data collection
 
-#### 3. Internationalization Strategy
+#### 4. AI Integration Strategy
 
-- **Decision**: react-i18next with language detection
+- **Decision**: Direct OpenAI API integration with dual API key support
 - **Rationale**:
-  - Supports Arabic (RTL) and English (LTR)
-  - Automatic language detection from browser/localStorage
-  - Fallback to English for missing translations
-
-#### 4. AI Integration Approach
-
-- **Decision**: Direct OpenAI API integration with error handling
-- **Rationale**:
+  - Flexible deployment options (env vars or user-provided keys)
   - Real-time AI assistance for form fields
-  - Comprehensive error handling for API failures
-  - Configurable model selection via environment variables
+  - Comprehensive error handling for production reliability
+- **Features**: Axios interceptors, timeout handling, rate limit management
 
-#### 5. Component Design System
+#### 5. Internationalization Architecture
 
-- **Decision**: Custom UI kit with Tailwind CSS
+- **Decision**: react-i18next with RTL context provider
 - **Rationale**:
-  - Consistent design across the application
-  - Reusable components (Button, Input, Modal, etc.)
-  - Accessibility-first approach
+  - Supports Arabic (RTL) and English (LTR) layouts
+  - Automatic language detection and persistence
+  - Context-aware RTL layout switching
+- **Implementation**: Custom RTLContext with document direction management
 
-### Performance Optimizations
+#### 6. Component Design System
 
-1. **Code Splitting**: Manual chunks for vendor libraries
-2. **Bundle Optimization**: Separate chunks for React, Router, and Form libraries
-3. **Lazy Loading**: Route-based code splitting
-4. **Form Persistence**: localStorage for form data recovery
+- **Decision**: Custom UI kit with Tailwind CSS v4
+- **Rationale**:
+  - Consistent design system across the application
+  - Reusable, accessible components
+  - Modern CSS with utility-first approach
+- **Components**: Button, Input, Modal, Stepper, and form components
 
-### Accessibility Features
-
-- **ARIA Labels**: Proper labeling for screen readers
-- **Keyboard Navigation**: Full keyboard support
-- **RTL Support**: Right-to-left layout for Arabic
-- **Color Contrast**: WCAG compliant color schemes
-- **Focus Management**: Proper focus handling in modals and forms
 
 ## 🛠️ Available Scripts
 

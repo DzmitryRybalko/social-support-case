@@ -61,7 +61,7 @@ export const getAIAssistance = async (
     const response = await apiClient.post('/chat/completions', {
       model: import.meta.env.VITE_OPENAI_MODEL || 'gpt-3.5-turbo',
       messages: [{ role: 'user', content: prompt }],
-      max_tokens: 5000,
+      max_tokens: 4000,
     });
 
     return response.data.choices[0].message.content;
